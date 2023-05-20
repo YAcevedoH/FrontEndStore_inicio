@@ -1,0 +1,242 @@
+:root {
+    --primario: #29e6ca;
+    --primarioOscuro: #35bbbb;
+    --secundario: #befc03;
+    --secundarioOscuro: rgb(233,287,2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrinsipal: 'Staatliches', sans-serif;  /* esto sirbe para las fuentes o tipo de letra que pida el clinte */
+}
+
+html {
+    box-sizing: border-box;/* este no puede faltar ya que es para activar diferentes funciones */
+    font-size: 62.5%; /* esto es lo que permite agregar que 1rem sean 10px */
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+/* Globales */
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;/* la base de la funte */
+}
+ p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+ }
+ a {
+    text-decoration: none;
+ }
+img {
+    width: 100%;/* se pone max-width para hacer mas pequeño el logo */
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1, h2, h3{
+text-align: center;
+color: var(--secundario);
+font-family: var(--fuentePrinsipal);
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+
+/* Esto es el header */
+.header {
+    display: flex;/* esto es para activar las siguientes funciones */
+    justify-content: center;
+}
+.header__logo {
+    margin: 3rem 0;/* esto separa el margen (3rem)hacia abajo y arriba (0acia derecha e izquiera)es para separar el logo de ls bordes */
+}
+/* footer */
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__texto {
+    font-family: var(--fuentePrinsipal);
+    text-align: center;  /* centrar texto */
+    font-size: 2.2rem;/* hacer mas grande el texto */
+}
+/* Navegacion */
+.navegacion {/* esta es la barra de navegacion y lo siguiente son las modificaciones */
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;  /* esto amplia la barra de navegacion (1rem)arriba y abajo(0) izquierda y derecha */
+    display: flex;/* esto es para centrar texto de la barra de navegacion */
+    justify-content: center;
+    gap: 2rem;   /*esto separa las palabras de la barra de navegacion */
+}
+.navegacion__enlace {
+font-family: var(--fuentePrinsipal);
+color: var(--blanco);
+font-size: 3rem; /* lo use para ponerlas letras mas grandes */
+}
+
+.navegacion__enlace--activo,/* <!-- este es un bloque y los de abajo son elementos -->se le pone modificador para que se quede resaltado cuando se de clic en el boton */
+.navegacion__enlace:hover {
+    color: var(--secundario);/* para resaltar las palabras cando se pase la manita por encima */
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+
+/* Productos */
+.producto {
+background-color: var(--primarioOscuro);
+padding: 1rem;
+}
+
+.producto__nombre {
+    font-size: 4rem; /*puso el nombre mas grande */
+}
+.producto__precio {
+    font-size: 2.8;
+    color: var(--secundario);
+}
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrinsipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+/* graficos */
+.grafico {
+min-height: 30rem;
+background-repeat: no-repeat;
+background-size: cover;
+grid-column:  1 / 3;
+}
+.grafico--camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+.grafico--node {
+    grid-row: 5 / 6;
+    grid-column: 2 / 4;
+    }
+}
+
+/* Nosotros */
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);/*estaba de una fraccion pero le quedaba un espacio por abajo de la imagen por eso e puse auto */
+}
+@media (min-width: 768px) {
+    .nosotros {
+        column-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.nosotros__imagen {
+    grid-row: 1 / 2;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+/* Bloques */
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques {
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    text-align: center;
+}
+
+.bloque__titulo {
+    margin: 0;/* quitar separacion entre las letras y el icono "quitar margen" */
+}
+
+/* Pagina del producto */
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat( 2, 1fr);
+        column-gap: 2rem;
+
+    }
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
+    gap: 2rem;
+}
+.formulario__campo {
+    border: 1rem solid var(--primarioOscuro);
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+}
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrinsipal);
+    padding: 2rem;
+    transition: background-color .3s ease;
+    grid-column: 1 / 3;
+}
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
